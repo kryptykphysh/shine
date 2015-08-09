@@ -1,0 +1,28 @@
+%header
+  %h1.h2 Customer Search
+
+%section.search-form
+  = form_for :customers, method: :get do |f|
+    .input-group.input-group-lg
+      = label_tag :keywords, nil, class: 'sr-only'
+      = text_field_tag :keywords, nil, placeholder: 'First Name, Last Name or Email Address', class: 'form-control input-lg'
+      %span.input-group-btn
+        = submit_tag 'Find Customers', class: 'btn btn-primary btn-lg'
+
+%section.search-results
+  %header
+    %h1.h3 Results
+  %table.table.table-striped
+    %thead
+      %tr
+        %th First Name
+        %th Last Name
+        %th Email
+        %th Joined
+    %tbody
+      - @customers.each do |customer|
+        %tr
+          %td= customer.first_name
+          %td= customer.last_name
+          %td= customer.email
+          %td= l customer.created_at.to_date
