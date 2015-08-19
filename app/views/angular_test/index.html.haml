@@ -1,0 +1,8 @@
+%article{ 'ng-app': 'angulartest' }
+  %header
+    %h1{ 'ng-if': 'name' } Hello, {{name}}
+  %section
+    %form.form-inline
+      .form-group
+        = label_tag :name, 'Name'
+        = text_field_tag 'name', nil, placeholder: 'Enter your name', class: 'form-control', autofocus: true, 'ng-model': 'name'
