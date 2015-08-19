@@ -10,6 +10,9 @@ app.controller(
       $scope.customers = []
 
       $scope.search = (search_term) ->
+        if search_term.length < 3
+          return
+
         $http.get(
           '/customers.json',
           { params: { keywords: search_term, page: page } }

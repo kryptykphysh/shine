@@ -6,9 +6,7 @@
     = form_for :customers, method: :get do |f|
       .input-group.input-group-lg
         = label_tag 'search.keywords', 'Keywords', class: 'sr-only'
-        = text_field_tag :keywords, nil, placeholder: 'First Name, Last Name or Email Address', class: 'form-control input-lg', 'ng-model': 'keywords'
-        %span.input-group-btn
-          = button_tag 'Find Customers', class: 'btn btn-primary btn-lg', 'ng-click': 'search(keywords); $event.preventDefault();'
+        = text_field_tag :keywords, nil, placeholder: 'First Name, Last Name or Email Address', class: 'form-control input-lg', 'ng-model': 'keywords', 'ng-change': 'search(keywords)'
     %h1.searched_for{ 'ng-if': 'searched_for' }
       %small
         Searched for:
