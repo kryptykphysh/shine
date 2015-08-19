@@ -1,0 +1,6 @@
+%nav
+  %ul.pager
+    %li{ class: "previous #{page.zero? ? 'disabled' : ''}" }
+      = link_to '&larr; Previous'.html_safe, customers_path(keywords: keywords, page: page - 1)
+    %li.next
+      = link_to 'Next &rarr;'.html_safe, customers_path(keywords: keywords, page: page + 1)
